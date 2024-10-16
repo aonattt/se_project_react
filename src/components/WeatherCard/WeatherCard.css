@@ -1,0 +1,23 @@
+.weather-card {
+  position: relative;
+  /* Other styling */
+}
+
+.weather-image-container {
+  position: relative;
+}
+
+.temperature-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 10px; /* Adjust as needed */
+  color: white; /* Choose a color that is visible over your image */
+  font-size: 1.5em; /* Adjust size as needed */
+  /* Additional styling, like background color, padding, etc., for better visibility */
+}
+
+.weather-image {
+  width: 100%; /* Adjust as needed */
+  /* Other styling for the image */
+}

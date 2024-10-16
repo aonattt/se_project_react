@@ -1,0 +1,78 @@
+@font-face {
+  font-family: 'Familjen Grotesk';
+  src: url(../../../public/fonts/FamiljenGrotesk-Regular.ttf);
+}
+
+.button__toggle {
+  appearance: none;
+}
+
+.button__label {
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  width: 56px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  background: #f3f3f3;
+  border-radius: 100px;
+  position: relative;
+  transition: background-color 0.2s;
+}
+
+.button__temp-F {
+  position: absolute;
+  font-family: 'Familjen Grotesk', sans-serif;
+  font-style: normal;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 16px;
+  font-weight: 700;
+  width: 28px;
+  height: 28px;
+  z-index: 1;
+  top: -13px;
+  left: 10px;
+}
+.button__temp-C {
+  position: absolute;
+  font-family: 'Familjen Grotesk', sans-serif;
+  font-style: normal;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 16px;
+  font-weight: 700;
+  width: 28px;
+  height: 28px;
+  z-index: 1;
+  top: -13px;
+  right: -8px;
+}
+
+.button__slide {
+  position: absolute;
+  left: -2px;
+  width: 32px;
+  height: 32px;
+  border-radius: 45px;
+  transition: 0.2s;
+  background-color: #000;
+  color: #fff;
+  box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
+}
+
+.button__toggle:checked + .button__label .button__slide {
+  left: calc(100% + 2px);
+  transform: translateX(-100%);
+}
+
+.button__label:active .button__slide {
+  width: 34px;
+}
+
+.button__label:hover {
+  border-color: #000;
+}
+
+.button__temp-active {
+  color: #fff;
+}

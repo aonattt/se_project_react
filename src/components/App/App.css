@@ -1,0 +1,14 @@
+@font-face {
+  font-family: "Familjen Grotesk";
+  src: url(../../../public/fonts/FamiljenGrotesk-Regular.ttf);
+}
+
+body {
+  background-color: #f3f3f3;
+}
+
+.App {
+  background-color: #f3f3f3;
+  margin: 0 auto;
+  max-width: 1220px;
+}

@@ -1,0 +1,18 @@
+.item-card {
+  list-style-type: none;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+.item-card-title {
+  text-align: center;
+  position: relative;
+  top: 40px;
+}
+
+.item-card-image {
+  height: 325px;
+  width: 328px;
+  border-radius: 10px;
+}
