@@ -8,7 +8,7 @@ function ItemCard({ item, handleCardClick }) {
         src={item?.imageUrl || item?.link}
         alt={item.name}
         className="item-card-image"
-        //onClick={() => handleCardClick(item)}
+        onClick={() => handleCardClick(item)} // Add the onClick event
       />
       <h3 className="item-card-title">{item.name}</h3>
     </li>
@@ -16,3 +16,4 @@ function ItemCard({ item, handleCardClick }) {
 }
 
 export default ItemCard;
+

@@ -9,7 +9,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal"; // Import ItemModal
 import AddItemModal from "../AddItemModal/AddItemModal";
 import { fetchWeatherData } from "../../utils/weatherApi";
-import { defaultClothingItems } from "../../utils/constants"; // Assuming this import
+import { defaultClothingItems } from "../../utils/constants";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Profile from "../Profile/Profile";
@@ -20,14 +20,19 @@ function App() {
   const [modalOpened, setModalOpened] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [weatherData, setWeatherData] = useState(null);
+  const [weatherLoading, setWeatherLoading] = useState(true);
+  const [weatherError, setWeatherError] = useState(false);
   const [clothingItems, setClothingItems] = useState(defaultClothingItems);
-  const [selectedItem, setSelectedItem] = useState(null); // State for the selected item
+  const [selectedItem, setSelectedItem] = useState(null); 
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [location, setLocation] = useState("");
+
+  // Close the modal
   const closeModal = () => {
     setModalOpened("");
   };
-  console.log(clothingItems);
+
+  // Fetch clothing items from API
   useEffect(() => {
     getItems()
       .then((data) => {
@@ -38,17 +43,41 @@ function App() {
       });
   }, []);
 
+  // Fetch weather data
   useEffect(() => {
     const fetchData = async () => {
-      const data = await fetchWeatherData();
-      setWeatherData(data);
+      try {
+        const data = await fetchWeatherData();
+        setWeatherData(data);
+        setWeatherLoading(false);
+      } catch (error) {
+        setWeatherError(true);
+        setWeatherLoading(false);
+      }
     };
 
     fetchData();
   }, []);
 
+  useEffect(() => {
+    if (modalOpened) {
+      window.addEventListener("keydown", handleEscClose);
+    } else {
+      window.removeEventListener("keydown", handleEscClose);
+    }
+  
+    // Cleanup the event listener on unmount
+    return () => window.removeEventListener("keydown", handleEscClose);
+  }, [modalOpened]);
+
   const handleCloseModal = (e) => {
-    if (e.target === e.currentTarget) {
+    if (e && e.target === e.currentTarget) {
+      setModalOpened("");
+    }
+  };
+
+  const handleEscClose = (e) => {
+    if (e.key === "Escape") {
       setModalOpened("");
     }
   };
@@ -112,65 +141,74 @@ function App() {
           value={{ currentTemperatureUnit, handleToggleSwitchChange }}
         >
           <div className="App">
-            <Header weatherData={weatherData} onAddClick={handleCloseModal} />
-            <Routes>
-              <Route
-                path="/"
-                element={
-                  <Main
-                    weatherData={weatherData}
-                    clothingItems={clothingItems}
-                    onItemSelect={handleItemSelect}
+            {/* Handle weather loading and error states */}
+            {weatherLoading ? (
+              <div>Loading weather data...</div>
+            ) : weatherError ? (
+              <div>Error loading weather data. Please try again later.</div>
+            ) : (
+              <>
+                <Header weatherData={weatherData} onAddClick={handleOpenModal} />
+                <Routes>
+                  <Route
+                    path="/"
+                    element={
+                      <Main
+                        weatherData={weatherData}
+                        clothingItems={clothingItems}
+                        onItemSelect={handleItemSelect}
+                      />
+                    }
                   />
-                }
-              />
-              <Route
-                path="/profile"
-                element={
-                  <Profile
-                    onSelectCard={handleSelectedCard}
-                    openAddClothesModal={handleOpenModal}
-                    clothingItems={clothingItems}
+                  <Route
+                    path="/profile"
+                    element={
+                      <Profile
+                        onSelectCard={handleSelectedCard}
+                        openAddClothesModal={handleOpenModal}
+                        clothingItems={clothingItems}
+                      />
+                    }
                   />
-                }
-              />
-            </Routes>
+                </Routes>
 
-            <Footer />
-            {modalOpened === "open" && (
-              <ItemModal
-                onClose={handleCloseModal}
-                selectedCard={selectedCard}
-                handleOpenConfirm={handleOpenConfirmationModal}
-              />
-            )}
+                <Footer />
+                {modalOpened === "open" && (
+                  <ItemModal
+                    onClose={handleCloseModal}
+                    selectedCard={selectedCard}
+                    handleOpenConfirm={handleOpenConfirmationModal}
+                  />
+                )}
 
-            {modalOpened === "confirmation-opened" && (
-              <DeleteConfirmationModal
-                onClose={handleCloseModal}
-                card={selectedCard}
-                handleDeleteCard={handleDeleteCard}
-              />
-            )}
-            {modalOpened === "new-clothes-modal" && (
-              <AddItemModal
-                isOpen={modalOpened === "new-clothes-modal"}
-                onAddItem={onAddItem}
-                onCloseModal={handleCloseModal}
-              />
-            )}
+                {modalOpened === "confirmation-opened" && (
+                  <DeleteConfirmationModal
+                    onClose={handleCloseModal}
+                    card={selectedCard}
+                    handleDeleteCard={handleDeleteCard}
+                  />
+                )}
+                {modalOpened === "new-clothes-modal" && (
+                  <AddItemModal
+                    isOpen={modalOpened === "new-clothes-modal"}
+                    onAddItem={onAddItem}
+                    onCloseModal={handleCloseModal}
+                  />
+                )}
 
-            {modalOpened && (
-              <ModalWithForm
-                title="Add Clothing Item"
-                name="addClothing"
-                buttonText="Submit"
-                onClose={handleCloseModal}
-              />
-            )}
+                {modalOpened && (
+                  <ModalWithForm
+                    title="Add Clothing Item"
+                    name="addClothing"
+                    buttonText="Submit"
+                    onClose={handleCloseModal}
+                  />
+                )}
 
-            {selectedItem && (
-              <ItemModal item={selectedItem} onClose={handleCloseItemModal} />
+                {selectedItem && (
+                  <ItemModal item={selectedItem} onClose={handleCloseItemModal} />
+                )}
+              </>
             )}
           </div>
         </CurrentTemperatureUnitContext.Provider>

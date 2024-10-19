@@ -1,7 +1,7 @@
 // utils/constants.js
-export const API_KEY = "3b48f91a734a9adb5386c8b545ae0b16";
-export const LATITUDE = "40.668963";
-export const LONGITUDE = "-74.109928";
+const API_KEY = "3b48f91a734a9adb5386c8b545ae0b16";
+const LATITUDE = "40.668963";
+const LONGITUDE = "-74.109928";
 
 const defaultClothingItems = [
   {
@@ -105,5 +105,5 @@ const weatherOptions = [
   },
 ];
 
-export { weatherOptions };
-export { defaultClothingItems };
+// Export all constants
+export { API_KEY, LATITUDE, LONGITUDE, defaultClothingItems, weatherOptions };

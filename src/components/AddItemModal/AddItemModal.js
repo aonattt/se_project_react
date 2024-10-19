@@ -13,14 +13,21 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
   const handleImageChange = (e) => {
     setLink(e.target.value);
   };
-
   const handleWeatherChange = (e) => {
     setweather(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!name || !weather || !imageUrl) {
+      alert("Please fill out all fields.");
+      return;
+    }
     onAddItem({ name, weather, imageUrl });
+    setName('');  // Clear the form after submission
+    setLink('');  // Clear the form
+    setweather('');  // Clear the form
+    onCloseModal();  // Close the modal
   };
 
   return (
@@ -64,8 +71,6 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
       {/* Select weather and radio inputs */}
       <p className="modal__radio-title">Select weather type:</p>
       <div className="modal__radio-container">
-        {/* pass in labels as props, map over them to addd radio labels */}
-
         <div className="radio__btn-container">
           <input
             className="radio__btns"
@@ -74,6 +79,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
             name="weather_temp"
             onChange={handleWeatherChange}
             value="hot"
+            required  // Add required here to enforce selection
           />
           <label htmlFor="radioA" className="radio__btn-label">
             Hot
