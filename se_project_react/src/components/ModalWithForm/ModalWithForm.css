@@ -1,0 +1,114 @@
+@font-face {
+  font-family: Cabinet Grotesk;
+  src: url(../../assets/fonts/CabinetGrotesk-Regular.ttf) format("ttf");
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0000004d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+}
+
+.modal__opened {
+  visibility: visible;
+}
+
+.modal__close {
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+.modal__content {
+  position: relative;
+  background-color: #fff;
+  padding: 28px 28px 36px;
+  max-width: 496px;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+
+.modal__title {
+  font-size: 16px;
+  line-height: 20px;
+  margin: 0;
+  margin-bottom: 24px;
+  font-family: "Cabinet Grotesk", sans-serif;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: 100%;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 700;
+}
+
+.modal__radio-buttons {
+  display: flex;
+  flex-direction: column;
+  font-family: "Cabinet Grotesk", sans-serif;
+  border: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.modal__input {
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  height: max-content;
+  border-bottom: 1px solid #000;
+  padding-bottom: 8px;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 16px;
+}
+
+.modal__submit {
+  background-color: #c4c4c4;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  font-family: "Cabinet Grotesk", sans-serif;
+  cursor: pointer;
+  padding: 12px 24px;
+  border-radius: 4px;
+  margin-top: 32px;
+  align-self: flex-start;
+}
+
+.modal__legend {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.modal__label {
+  margin: 0;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.modal__input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
