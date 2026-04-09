@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Cabinet Grotesk";
-  src: url("../../assets/fonts/CabinetGrotesk-Regular.ttf") format("ttf");
+  src: url("../../vendor/fonts/FamiljenGrotesk-Bold.ttf") format("ttf");
 }
 
 .card {
