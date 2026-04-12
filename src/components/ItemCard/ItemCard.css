@@ -4,7 +4,7 @@
 }
 
 .card {
-  width: 323px;
+  width: 315px;
   list-style: none;
   position: relative;
   display: flex;
@@ -12,6 +12,9 @@
   align-items: center;
   cursor: pointer;
   transition: opacity 0.3s ease;
+  border-radius: 19px;
+  overflow: hidden;
+  border: 3px solid lightgray;
 }
 
 .card:hover {
@@ -21,8 +24,7 @@
 .card__image {
   width: 100%;
   height: auto;
-  border-radius: 4px;
-  border: 3px solid lightgray;
+  border-radius: 0;
 }
 .card__name {
   font-size: 16px;

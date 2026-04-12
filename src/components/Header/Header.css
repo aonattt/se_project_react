@@ -30,6 +30,10 @@
   font-style: normal;
   font-size: 20px;
   line-height: 24px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
 }
 
 .header__user-name {

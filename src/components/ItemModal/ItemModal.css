@@ -18,8 +18,9 @@
   visibility: hidden;
 }
 
-.modal__opened {
+.modal_opened {
   visibility: visible;
+  display: flex;
 }
 
 .modal__content_type_image {
@@ -44,7 +45,7 @@
   z-index: 2;
 }
 
-.modal__close img {
+.modal__close-icon {
   width: 24px;
   height: 24px;
 }
