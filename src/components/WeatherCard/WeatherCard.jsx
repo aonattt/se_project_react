@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 
 function WeatherCard({ weatherData }) {
-  const weatherIcon = weatherIcons.filter((icon) => {
+  const weatherIcon = weatherIcons.find((icon) => {
     return (
       (icon.condition === weatherData.condition ||
         icon.condition === "fallback") &&
@@ -12,9 +12,8 @@ function WeatherCard({ weatherData }) {
     );
   });
 
-  const weatherIconUrl = weatherIcon.length > 0 ? weatherIcon[0].url : null;
-  const weatherIconAlt =
-    weatherIcon.length > 0 ? weatherIcon[0].condition : "weather";
+  const weatherIconUrl = weatherIcon ? weatherIcon.url : null;
+  const weatherIconAlt = weatherIcon ? weatherIcon.condition : "weather";
 
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
 

@@ -9,7 +9,6 @@ import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import Profile from "../Profile/Profile";
@@ -75,7 +74,6 @@ function App() {
   };
 
   const onAddItem = (item, resetForm) => {
-    console.log("2. App.jsx received the item:", item);
     addItem(item)
       .then((newItemFromServer) => {
         console.log("SERVER RETURNED:", newItemFromServer);
@@ -140,7 +138,9 @@ function App() {
           <DeleteConfirmationModal
             isOpen={activeModal === "confirm-delete"}
             handleCloseModal={handleCloseModal}
-            onDeleteClick={() => handleDeleteItem(selectedCard._id)}
+            onDeleteClick={() =>
+              handleDeleteItem(selectedCard._id || selectedCard.id)
+            }
           />
           <AddItemModal
             isOpen={activeModal === "add-garment"}

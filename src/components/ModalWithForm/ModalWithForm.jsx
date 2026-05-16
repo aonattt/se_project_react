@@ -48,11 +48,7 @@ function ModalWithForm({
         </button>
         <form className="modal__form" name={name} onSubmit={onSubmit}>
           {children}
-          <button
-            type="submit"
-            className="modal__submit"
-            onClick={() => console.log("BUTTON WAS PHYSICALLY CLICKED!")}
-          >
+          <button type="submit" className="modal__submit">
             {buttonText}
           </button>
         </form>

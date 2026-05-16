@@ -71,6 +71,12 @@
       "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Leather_Jacket_%2851011162080%29.jpg/1280px-Leather_Jacket_%2851011162080%29.jpg",
       "weather": "cold",
       "_id": 23
+    },
+    {
+      "name": "Hoodie",
+      "imageUrl": "https://tse4.mm.bing.net/th/id/OIP.2c_gyskaLqUey84Twf9_PQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "weather": "warm",
+      "_id": 24
     }
   ]
 }
