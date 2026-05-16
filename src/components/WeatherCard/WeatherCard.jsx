@@ -1,5 +1,7 @@
 import "./WeatherCard.css";
 import { weatherIcons } from "../../utils/constants";
+import { useContext } from "react";
+import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 
 function WeatherCard({ weatherData }) {
   const weatherIcon = weatherIcons.filter((icon) => {
@@ -14,9 +16,15 @@ function WeatherCard({ weatherData }) {
   const weatherIconAlt =
     weatherIcon.length > 0 ? weatherIcon[0].condition : "weather";
 
+  const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
+
   return (
     <section className="weather-card">
-      <p className="weather-card__temp">{weatherData.temp.F}°F</p>
+      <p className="weather-card__temp">
+        {currentTemperatureUnit === "C"
+          ? `${weatherData.temp.C}°C`
+          : `${weatherData.temp.F}°F`}
+      </p>
       <img
         src={weatherIconUrl}
         alt={weatherIconAlt}

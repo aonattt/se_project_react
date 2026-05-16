@@ -60,10 +60,9 @@
 .modal__footer {
   padding: 16px;
   background-color: #fff;
-  flex-grow: 1;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .modal__caption {
@@ -80,4 +79,15 @@
   font-weight: 700;
   line-height: 24px;
   font-family: "Cabinet Grotesk", sans-serif;
+}
+
+.modal__delete-btn {
+  background: transparent;
+  border: none;
+  color: #ff4040;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
 }

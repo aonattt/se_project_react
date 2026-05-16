@@ -42,6 +42,12 @@ The app checks the real-time temperature in your city and suggests the best clot
 
 ---
 
+### **Project Pitch Video**
+
+Check out [this video](https://drive.google.com/file/d/1s6OM6znZEbzEOWZJPqbnMeq134pxIOBQ/view?usp=sharing), where I describe my project and some challenges I faced while building it.
+
+---
+
 ### **Links**
 
 💻 **[GitHub Repository](https://github.com/aonattt/se_project_react)**
@@ -52,7 +58,7 @@ The app checks the real-time temperature in your city and suggests the best clot
 
 1.  **Clone the project:** `git clone https://github.com/aonattt/se_project_react.git`
 2.  **Install dependencies:** `npm install`
-3.  **Launch the app:** `npm run dev`
+3.  **Launch the app:** `npm run start`
 
 ---
 

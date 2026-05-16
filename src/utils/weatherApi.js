@@ -22,13 +22,17 @@ export const getWeatherCondition = (temp) => {
 };
 
 export const processWeatherData = (data) => {
-  const result = {};
   const isDay =
     nowInSeconds >= data.sys.sunrise && nowInSeconds < data.sys.sunset;
-  result.city = data.name;
-  result.temp = { F: Math.round(data.main.temp) };
-  result.type = getWeatherCondition(result.temp.F);
-  result.condition = data.weather[0].main.toLowerCase();
-  result.dayOrNight = isDay ? "day" : "night";
+  const result = {
+    city: data.name,
+    temp: {
+      F: Math.round(data.main.temp),
+      C: Math.round(((data.main.temp - 32) * 5) / 9),
+    },
+    type: getWeatherCondition(Math.round(data.main.temp)),
+    condition: data.weather[0].main.toLowerCase(),
+    dayOrNight: isDay ? "day" : "night",
+  };
   return result;
 };
