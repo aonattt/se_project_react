@@ -1,9 +1,14 @@
 .sidebar {
   display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.sidebar__user-info {
+  display: flex;
   align-items: center;
   gap: 12px;
-  width: 229px;
-  height: 56px;
+  margin-bottom: 32px;
 }
 
 .sidebar__avatar {
@@ -13,6 +18,20 @@
   object-fit: cover;
 }
 
+.sidebar__avatar-placeholder {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 20px;
+  font-family: "Cabinet Grotesk", sans-serif;
+}
+
 .sidebar__username {
   font-family: "Cabinet Grotesk", sans-serif;
   font-weight: 700;
@@ -20,4 +39,29 @@
   line-height: 24px;
   margin: 0;
   color: #000000;
+}
+
+.sidebar__buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.sidebar__edit-btn,
+.sidebar__logout-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #000000;
+  cursor: pointer;
+  text-align: left;
+}
+
+.sidebar__edit-btn:hover,
+.sidebar__logout-btn:hover {
+  opacity: 0.6;
 }

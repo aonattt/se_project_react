@@ -16,6 +16,7 @@
   justify-content: center;
   align-items: center;
   visibility: hidden;
+  z-index: 999;
 }
 
 .modal_opened {
@@ -90,4 +91,8 @@
   font-weight: 700;
   cursor: pointer;
   padding: 0;
+}
+
+.modal__delete-btn_hidden {
+  display: none;
 }

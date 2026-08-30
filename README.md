@@ -2,7 +2,7 @@
 
 ### **What is this project?**
 
-**WTWR** is a smart wardrobe assistant that helps you decide what to wear based on the actual weather. No more guessing if you need a jacket or just a T-shirt!
+**WTWR** is a full-stack smart wardrobe assistant that helps you decide what to wear based on the actual weather. No more guessing if you need a jacket or just a T-shirt!
 
 The app checks the real-time temperature in your city and suggests the best clothes from your personal closet for **Hot**, **Warm**, or **Cold** conditions.
 
@@ -10,47 +10,49 @@ The app checks the real-time temperature in your city and suggests the best clot
 
 ### **Key Features**
 
-- **Live Weather:** Connects to a weather API to get current temperatures.
-- **Smart Filtering:** Automatically shows only the clothes that match today's weather.
-- **Add Your Style:** Easily upload new items with a name, image link, and weather category.
-- **Modern UI:** Clean design featuring "floating" item labels and sleek underline-style forms.
+- **JWT Authentication & Authorization:** Secure registration, sign-in, token validation on page load, and automated session persistence via local storage.
+- **Protected Routes & User Profiles:** Dedicated `/profile` route that is fully protected and displays only the current user's clothing items, along with their avatar and name in the sidebar.
+- **Profile Management:** Fully functional "Change profile data" modal allowing users to update their account details.
+- **Interactive Wardrobe (Likes & Deletion):** Real-time liking system where state persists across page reloads, paired with authorization checks to delete owned garments.
+- **Live Weather & Smart Filtering:** Connects to the OpenWeather API to fetch current local temperatures and automatically filters wardrobe items to match today's weather conditions.
+- **Dynamic Form Validation:** Custom modals for adding garments, logging in, registering, and editing profiles with reactive submit buttons.
+- **Modern UI:** Clean design featuring custom "floating" item labels and sleek form inputs built with BEM methodology.
 
 ---
 
 ### **Technologies Used**
 
-- **React:** For building a fast, interactive user interface.
-- **Vite:** The modern build tool that keeps the app running smoothly.
-- **Advanced CSS:** Used **Flexbox** for layouts and **Absolute Positioning** for the custom card labels.
-- **OpenWeather API:** The data source for all real-time temperature updates.
+- **Frontend:** React, Vite, React Router DOM, Advanced CSS (Flexbox & Absolute Positioning).
+- **Backend:** Node.js, Express.js, MongoDB (RESTful API architecture).
+- **Security:** JSON Web Tokens (JWT) for secure user sessions.
+- **External APIs:** OpenWeather API for real-time temperature updates.
 
 ---
 
 ### **Project Preview**
 
-#### **The Wardrobe Grid**
+#### **1. Main Dashboard**
 
-![Main Dashboard Interface](./src/assets/screenshots/mainScreen.png)
+![Main Screen](./src/assets/screenshots/mainScreen.png)
 
-> **Note:** Check out the white "Name Tag" on each clothing card—built with custom CSS for a high-end look.
+#### **2. Item View & Details Modal**
 
-#### **Add New Garment Modal**
+![Item Modal](./src/assets/screenshots/itemModal.png)
 
-![Add Clothes Modal Interface](./src/assets/screenshots/itemModal.png)
+#### **3. User Profile Page**
 
-> **Note:** The form uses a minimalist underline style instead of standard bulky boxes.
+![View Profile](./src/assets/screenshots/viewProfile.png)
 
----
+#### **4. Profile Update Modal**
 
-### **Project Pitch Video**
-
-Check out [this video](https://drive.google.com/file/d/1s6OM6znZEbzEOWZJPqbnMeq134pxIOBQ/view?usp=sharing), where I describe my project and some challenges I faced while building it.
+![Update Profile](./src/assets/screenshots/updateProfile.png)
 
 ---
 
 ### **Links**
 
-💻 **[GitHub Repository](https://github.com/aonattt/se_project_react)**
+💻 **[Frontend GitHub Repository](https://github.com/aonattt/se_project_react)**  
+⚙️ **[Backend GitHub Repository](https://github.com/aonattt/se_project_express)**
 
 ---
 

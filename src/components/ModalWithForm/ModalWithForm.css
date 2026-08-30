@@ -32,6 +32,7 @@
   font-size: 18px;
   cursor: pointer;
 }
+
 .modal__content {
   position: relative;
   background-color: #fff;
@@ -83,8 +84,10 @@
   font-size: 16px;
 }
 
+/* --- UPDATED SUBMIT BUTTON STYLES --- */
+
+/* Removed margin-top; the container will handle spacing now */
 .modal__submit {
-  background-color: #c4c4c4;
   color: #fff;
   border: none;
   font-size: 16px;
@@ -92,8 +95,18 @@
   cursor: pointer;
   padding: 12px 24px;
   border-radius: 4px;
-  margin-top: 32px;
-  align-self: flex-start;
+  transition: background-color 0.2s ease;
+}
+
+/* Active State (Black) */
+.modal__submit:not(:disabled) {
+  background-color: #000;
+}
+
+/* Disabled State (Gray) */
+.modal__submit:disabled {
+  background-color: #c4c4c4;
+  cursor: not-allowed;
 }
 
 .modal__legend {
@@ -121,4 +134,39 @@
   font-weight: 700;
   cursor: pointer;
   margin-bottom: 8px;
+}
+
+.modal__button-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.modal__secondary-btn {
+  background: transparent;
+  border: none;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  padding: 0;
+}
+
+.modal__secondary-btn:hover {
+  color: #000;
+}
+
+.modal__error-message {
+  color: #ff4040;
+  font-size: 12px;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 500;
+  margin-top: 4px;
+  display: block;
+}
+
+.modal__input_type_error {
+  border-bottom: 1px solid #ff4040;
 }

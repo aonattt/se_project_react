@@ -14,7 +14,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
     if (isOpen) {
       setValues({ name: "", imageUrl: "", weather: "" });
     }
-  }, [isOpen]);
+  }, [isOpen, setValues]);
 
   const handleReset = () => {
     setValues({ name: "", imageUrl: "", weather: "" });
@@ -24,6 +24,12 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
     e.preventDefault();
     onAddItem(values, handleReset);
   };
+
+  const isValid =
+    values.name.trim() !== "" &&
+    values.imageUrl.trim() !== "" &&
+    values.weather !== "";
+
   return (
     <ModalWithForm
       title="New garment"
@@ -32,6 +38,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
       isOpen={isOpen}
       handleCloseModal={onCloseModal}
       onSubmit={handleSubmit}
+      isValid={isValid}
     >
       <div className="modal__input-group">
         <label htmlFor="name" className="modal__label">
@@ -63,7 +70,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
       </div>
       <fieldset className="modal__radio-buttons">
         <legend className="modal__legend">Select the weather type :</legend>
-        {/* Hot Radio */}
+
         <label htmlFor="hot" className="modal__label modal__label_type_radio">
           <input
             className="modal__radio-input"
@@ -76,7 +83,6 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
           Hot
         </label>
 
-        {/* Warm Radio */}
         <label htmlFor="warm" className="modal__label modal__label_type_radio">
           <input
             className="modal__radio-input"
@@ -89,7 +95,6 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
           Warm
         </label>
 
-        {/* Cold Radio */}
         <label htmlFor="cold" className="modal__label modal__label_type_radio">
           <input
             className="modal__radio-input"

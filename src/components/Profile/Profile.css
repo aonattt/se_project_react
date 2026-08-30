@@ -1,13 +1,13 @@
 .profile {
   display: flex;
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 80px 20px;
+  padding-top: 24px;
+  font-family: "Cabinet Grotesk", sans-serif;
 }
 
 .profile__sidebar {
-  width: 229px;
+  width: 250px;
   margin-right: 60px;
+  flex-shrink: 0;
 }
 
 .profile__clothing-items {

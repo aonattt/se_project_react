@@ -1,10 +1,13 @@
 .modal__content_type_confirmation {
+  position: relative;
   width: 670px;
   height: 280px;
+  background-color: #ffffff;
+  border-radius: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
+  box-sizing: border-box;
 }
 
 .modal__confirmation-container {
@@ -14,27 +17,23 @@
 }
 
 .modal__confirmation-text {
-  width: 367px;
-  height: 48px;
+  margin: 0 0 40px 0;
   font-family: "Cabinet Grotesk", sans-serif;
   font-size: 16px;
   line-height: 24px;
   font-weight: 700;
   text-align: center;
   color: #000000;
-  margin: 0 0 32px 0;
 }
 
 .modal__confirmation-buttons {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 16px;
 }
 
 .modal__confirmation-btn {
-  width: 138px;
-  height: 24px;
   background: transparent;
   border: none;
   color: #ff4040;
@@ -44,7 +43,10 @@
   font-weight: 700;
   cursor: pointer;
   padding: 0;
-  margin-bottom: 24px;
+}
+
+.modal__confirmation-btn:hover {
+  opacity: 0.8;
 }
 
 .modal__cancel-btn {
@@ -57,4 +59,8 @@
   font-weight: 700;
   cursor: pointer;
   padding: 0;
+}
+
+.modal__cancel-btn:hover {
+  opacity: 0.8;
 }

@@ -10,6 +10,9 @@ function ModalWithForm({
   name,
   handleCloseModal,
   onSubmit,
+  altButtonText,
+  onAltButtonClick,
+  isValid = true,
 }) {
   useEffect(() => {
     if (!isOpen) return;
@@ -26,6 +29,7 @@ function ModalWithForm({
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [isOpen, handleCloseModal]);
+
   const handleOverlayClick = (e) => {
     if (e.target === e.currentTarget) {
       handleCloseModal();
@@ -48,9 +52,22 @@ function ModalWithForm({
         </button>
         <form className="modal__form" name={name} onSubmit={onSubmit}>
           {children}
-          <button type="submit" className="modal__submit">
-            {buttonText}
-          </button>
+
+          <div className="modal__button-container">
+            <button type="submit" className="modal__submit" disabled={!isValid}>
+              {buttonText}
+            </button>
+
+            {altButtonText && (
+              <button
+                type="button"
+                className="modal__secondary-btn"
+                onClick={onAltButtonClick}
+              >
+                {altButtonText}
+              </button>
+            )}
+          </div>
         </form>
       </div>
     </div>

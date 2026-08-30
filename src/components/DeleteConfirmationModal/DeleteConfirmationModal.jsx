@@ -4,8 +4,14 @@ import "./DeleteConfirmationModal.css";
 
 function DeleteConfirmationModal({ isOpen, handleCloseModal, onDeleteClick }) {
   return (
-    <div className={`modal ${isOpen ? "modal_opened" : ""}`}>
-      <div className="modal__content modal__content_type_confirmation">
+    <div
+      className={`modal ${isOpen ? "modal_opened" : ""}`}
+      onClick={handleCloseModal}
+    >
+      <div
+        className="modal__content modal__content_type_confirmation"
+        onClick={(e) => e.stopPropagation()}
+      >
         <button
           type="button"
           className="modal__close"
@@ -17,10 +23,14 @@ function DeleteConfirmationModal({ isOpen, handleCloseModal, onDeleteClick }) {
             className="modal__close-icon"
           />
         </button>
+
         <div className="modal__confirmation-container">
           <p className="modal__confirmation-text">
             Are you sure you want to delete this item?
+            <br />
+            This action is irreversible.
           </p>
+
           <div className="modal__confirmation-buttons">
             <button
               type="button"
