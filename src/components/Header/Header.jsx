@@ -52,10 +52,11 @@ function Header({
                   className="header__user-avatar"
                   src={currentUser.avatar}
                   alt={currentUser.name}
-                  className="header__avatar"
                 />
               ) : (
-                <div className="header__avatar-placeholder">{userInitial}</div>
+                <div className="header__user-avatar-placeholder">
+                  {userInitial}
+                </div>
               )}
             </Link>
           </>

@@ -1,11 +1,3 @@
-@font-face {
-  font-family: "Cabinet Grotesk";
-  src: url("../../vendor/fonts/FamiljenGrotesk-Bold.ttf") format("ttf");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
 .header {
   display: flex;
   flex-direction: row;
@@ -82,14 +74,14 @@
   opacity: 0.6;
 }
 
-.header__avatar {
+.header__user-avatar {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
 }
 
-.header__avatar-placeholder {
+.header__user-avatar-placeholder {
   width: 40px;
   height: 40px;
   border-radius: 50%;
