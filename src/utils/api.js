@@ -1,7 +1,6 @@
-const baseUrl =
-  process.env.NODE_ENV === "production"
-    ? "https://api.aonat-wtwr.strangled.net"
-    : "http://localhost:3001";
+const baseUrl = import.meta.env.PROD
+  ? "https://api.aonat-wtwr.strangled.net"
+  : "http://localhost:3001";
 
 export const checkResponse = (res) => {
   if (res.ok) {
